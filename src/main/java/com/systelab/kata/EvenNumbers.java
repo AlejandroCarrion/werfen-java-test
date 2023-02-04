@@ -8,15 +8,7 @@ public class EvenNumbers {
 		int cont = 1;
 		while (cont <= numbers.length) {
 			if (numbers[lengthArrayDivisible] % divider == 0) {
-				int tmp = numbers[lengthArrayDivisible];
-				for (int j = lengthArrayDivisible; j >= 0; j--) {
-					if (j == 0) {
-						numbers[j] = tmp;
-					} else {
-						numbers[j] = numbers[j - 1];
-
-					}
-				}
+				numbers = getNumbers(numbers, lengthArrayDivisible);
 			} else {
 				lengthArrayDivisible--;
 			}
@@ -25,4 +17,17 @@ public class EvenNumbers {
 		numbers = Arrays.copyOf(numbers, lengthArrayDivisible + 1);
 		return numbers;
 	}
+
+	private static int[] getNumbers(int[] numbers, int lengthArrayDivisible) {
+		int tmp = numbers[lengthArrayDivisible];
+		for (int j = lengthArrayDivisible; j >= 0; j--) {
+			if (j == 0) {
+				numbers[j] = tmp;
+			} else {
+				numbers[j] = numbers[j - 1];
+			}
+		}
+		return numbers;
+	}
+
 }
