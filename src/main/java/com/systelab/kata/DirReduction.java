@@ -3,16 +3,19 @@ package com.systelab.kata;
 import java.util.Arrays;
 
 public class DirReduction {
-	final static String north = "NORTH";
-	final static String south = "SOUTH";
-	final static String east = "EAST";
-	final static String west = "WEST";
+	final static String NORTH = "NORTH";
+	final static String SOUTH = "SOUTH";
+	final static String EAST = "EAST";
+	final static String WEST = "WEST";
+
 	public static String[] dirReduc(String[] arr) {
 		boolean timeWaste = false;
 		for (int i = 0; i < arr.length; i++) {
-			timeWaste = isTimeWaste(arr,i);
+			if (i > 0) {
+				timeWaste = isTimeWaste(arr, i);
+			}
 			if (timeWaste) {
-				arr = deleteDirections(arr,i);
+				arr = deleteDirections(arr, i);
 				int arrayFinalLength = arr.length - 2;
 				arr = Arrays.copyOf(arr, arrayFinalLength);
 				i = 0;
@@ -21,30 +24,21 @@ public class DirReduction {
 		}
 		return arr;
 	}
+
 	private static boolean isTimeWaste(String[] arr, int i) {
 		boolean timeWaste = false;
-		if (arr[i].equals(north)) {
-			if (i > 0 && arr[i - 1].equals(south)) {
-				timeWaste = true;
-			}
-		} else if (arr[i].equals(south)) {
-			if (i > 0 && arr[i - 1].equals(north)) {
-				timeWaste = true;
-			}
-		} else if (arr[i].equals(east)) {
-			if (i > 0 && arr[i - 1].equals(west)) {
-				timeWaste = true;
-			}
-		} else if (arr[i].equals(west)) {
-			if (i > 0 && arr[i - 1].equals(east)) {
-				timeWaste = true;
-			}
-		}else {
-			timeWaste = false;
+		if (arr[i].equals(NORTH) && arr[i - 1].equals(SOUTH)) {
+			timeWaste = true;
+		} else if (arr[i].equals(SOUTH) && arr[i - 1].equals(NORTH)) {
+			timeWaste = true;
+		} else if (arr[i].equals(EAST) && arr[i - 1].equals(WEST)) {
+			timeWaste = true;
+		} else if (arr[i].equals(WEST) && arr[i - 1].equals(EAST)) {
+			timeWaste = true;
 		}
 		return timeWaste;
 	}
-	
+
 	private static String[] deleteDirections(String[] arr, int i) {
 		int arrReduced = arr.length - 2;
 		if (arr.length - 2 == 1) {
@@ -57,5 +51,5 @@ public class DirReduction {
 		}
 		return arr;
 	}
-	
+
 }
