@@ -3,10 +3,10 @@ package com.systelab.kata;
 import java.util.Arrays;
 
 public class DirReduction {
-	final static String NORTH = "NORTH";
-	final static String SOUTH = "SOUTH";
-	final static String EAST = "EAST";
-	final static String WEST = "WEST";
+	private final static String NORTH = "NORTH";
+	private final static String SOUTH = "SOUTH";
+	private final static String EAST = "EAST";
+	private final static String WEST = "WEST";
 
 	public static String[] dirReduc(String[] arr) {
 		boolean timeWaste = false;

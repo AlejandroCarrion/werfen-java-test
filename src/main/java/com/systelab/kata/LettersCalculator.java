@@ -1,8 +1,8 @@
 package com.systelab.kata;
 
 public class LettersCalculator {
-	final static int LASTPOS = 122;
-	final static int FIRSTPOS = 96;
+	private final static int LASTPOS = 122;
+	private final static int FIRSTPOS = 96;
 	private static char[] alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
 			's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 	public static String addLetters(String... letters) {
